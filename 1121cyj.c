@@ -1,4 +1,4 @@
-# define _CRT_SECURE_NO_WARNING
+# define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -7,13 +7,13 @@ struct Diary {
     char date[12];
     char mood[20];
     char content[200];
-    int rating;  // 1ºÎÅÍ 5±îÁöÀÇ º°Á¡
+    int rating;  // 1ë¶€í„° 5ê¹Œì§€ì˜ ë³„ì 
 };
 
 void addDiary(struct Diary diary) {
     FILE* file = fopen("diary.txt", "a");
     if (file == NULL) {
-        printf("ÀÏ±â ÆÄÀÏÀ» ¿­ ¼ö ¾ø½À´Ï´Ù.\n");
+        printf("ì¼ê¸° íŒŒì¼ì„ ì—´ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.\n");
         exit(1);
     }
 
@@ -25,7 +25,7 @@ void addDiary(struct Diary diary) {
 void viewDiary(char date[]) {
     FILE* file = fopen("diary.txt", "r");
     if (file == NULL) {
-        printf("ÀÏ±â ÆÄÀÏÀ» ¿­ ¼ö ¾ø½À´Ï´Ù.\n");
+        printf("ì¼ê¸° íŒŒì¼ì„ ì—´ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.\n");
         exit(1);
     }
 
@@ -35,44 +35,44 @@ void viewDiary(char date[]) {
     while (fscanf(file, "%s %s %[^\n] %d", diary.date, diary.mood, diary.content, &diary.rating) != EOF) {
         if (strcmp(diary.date, date) == 0) {
             char* colorCode = "";
-            if (strcmp(diary.mood, "±â»İ") == 0) {
-                colorCode = "\033[1;33m"; // ³ë¶õ»ö
+            if (strcmp(diary.mood, "ê¸°ì¨") == 0) {
+                colorCode = "\033[1;33m"; // ë…¸ë€ìƒ‰
             }
-            else if (strcmp(diary.mood, "½½ÇÄ") == 0) {
-                colorCode = "\033[1;34m"; // ÆÄ¶õ»ö
+            else if (strcmp(diary.mood, "ìŠ¬í””") == 0) {
+                colorCode = "\033[1;34m"; // íŒŒë€ìƒ‰
             }
-            else if (strcmp(diary.mood, "±îÄ¥") == 0) {
-                colorCode = "\033[1;32m"; // ÃÊ·Ï»ö
+            else if (strcmp(diary.mood, "ê¹Œì¹ ") == 0) {
+                colorCode = "\033[1;32m"; // ì´ˆë¡ìƒ‰
             }
-            else if (strcmp(diary.mood, "È­³²") == 0) {
-                colorCode = "\033[1;31m"; // »¡°£»ö
+            else if (strcmp(diary.mood, "í™”ë‚¨") == 0) {
+                colorCode = "\033[1;31m"; // ë¹¨ê°„ìƒ‰
             }
-            else if (strcmp(diary.mood, "¼Ò½É") == 0) {
-                colorCode = "\033[1;35m"; // º¸¶ó»ö
+            else if (strcmp(diary.mood, "ì†Œì‹¬") == 0) {
+                colorCode = "\033[1;35m"; // ë³´ë¼ìƒ‰
             }
 
             printf("%s", colorCode);
-            printf("=== %sÀÇ ÀÏ±â ===\n", date);
-            printf("±âºĞ: %s\n", diary.mood);
-            printf("³»¿ë: %s\n", diary.content);
+            printf("=== %sì˜ ì¼ê¸° ===\n", date);
+            printf("ê¸°ë¶„: %s\n", diary.mood);
+            printf("ë‚´ìš©: %s\n", diary.content);
 
-            // ÃÑÁ¡¿¡ µû¶ó º°À» Ãâ·Â
-            printf("º°Á¡: ");
+            // ì´ì ì— ë”°ë¼ ë³„ì„ ì¶œë ¥
+            printf("ë³„ì : ");
             for (int i = 0; i < diary.rating; ++i) {
-                printf("¡Ú");
+                printf("â˜…");
             }
             printf("\n");
 
             printf("==================\n");
 
-            // ¿ø·¡ÀÇ »ö»óÀ¸·Î º¹±¸
+            // ì›ë˜ì˜ ìƒ‰ìƒìœ¼ë¡œ ë³µêµ¬
             printf("\033[0m");
             found = 1;
         }
     }
 
     if (!found) {
-        printf("%sÀÇ ÀÏ±â°¡ ¾ø½À´Ï´Ù.\n", date);
+        printf("%sì˜ ì¼ê¸°ê°€ ì—†ìŠµë‹ˆë‹¤.\n", date);
     }
 
     fclose(file);
@@ -81,7 +81,7 @@ void viewDiary(char date[]) {
 int calculateTotalRating(char date[]) {
     FILE* file = fopen("diary.txt", "r");
     if (file == NULL) {
-        printf("ÀÏ±â ÆÄÀÏÀ» ¿­ ¼ö ¾ø½À´Ï´Ù.\n");
+        printf("ì¼ê¸° íŒŒì¼ì„ ì—´ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.\n");
         exit(1);
     }
 
@@ -102,35 +102,35 @@ int calculateTotalRating(char date[]) {
 void clearDiaryFile() {
     FILE* file = fopen("diary.txt", "w");
     if (file == NULL) {
-        printf("ÀÏ±â ÆÄÀÏÀ» ¿­ ¼ö ¾ø½À´Ï´Ù.\n");
+        printf("ì¼ê¸° íŒŒì¼ì„ ì—´ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.\n");
         exit(1);
     }
     fclose(file);
 }
 
 void clearAllDiaries() {
-    printf("¸ğµç ÀÏ±â¸¦ »èÁ¦ÇÏ½Ã°Ú½À´Ï±î? (1: ¿¹, 2: ¾Æ´Ï¿À): ");
+    printf("ëª¨ë“  ì¼ê¸°ë¥¼ ì‚­ì œí•˜ì‹œê² ìŠµë‹ˆê¹Œ? (1: ì˜ˆ, 2: ì•„ë‹ˆì˜¤): ");
     int clearChoice;
     scanf("%d", &clearChoice);
     if (clearChoice == 1) {
         clearDiaryFile();
-        printf("¸ğµç ÀÏ±â°¡ »èÁ¦µÇ¾ú½À´Ï´Ù.\n");
+        printf("ëª¨ë“  ì¼ê¸°ê°€ ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤.\n");
     }
     else {
-        printf("ÀÏ±â »èÁ¦¸¦ Ãë¼ÒÇß½À´Ï´Ù.\n");
+        printf("ì¼ê¸° ì‚­ì œë¥¼ ì·¨ì†Œí–ˆìŠµë‹ˆë‹¤.\n");
     }
 }
 
 void deleteDiaryByDate(char date[]) {
     FILE* file = fopen("diary.txt", "r");
     if (file == NULL) {
-        printf("ÀÏ±â ÆÄÀÏÀ» ¿­ ¼ö ¾ø½À´Ï´Ù.\n");
+        printf("ì¼ê¸° íŒŒì¼ì„ ì—´ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.\n");
         exit(1);
     }
 
     FILE* tempFile = fopen("temp_diary.txt", "w");
     if (tempFile == NULL) {
-        printf("ÀÏ±â ÀÓ½Ã ÆÄÀÏÀ» ¿­ ¼ö ¾ø½À´Ï´Ù.\n");
+        printf("ì¼ê¸° ì„ì‹œ íŒŒì¼ì„ ì—´ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.\n");
         exit(1);
     }
 
@@ -153,23 +153,23 @@ void deleteDiaryByDate(char date[]) {
     rename("temp_diary.txt", "diary.txt");
 
     if (deleted) {
-        printf("%sÀÇ ÀÏ±â°¡ »èÁ¦µÇ¾ú½À´Ï´Ù.\n", date);
+        printf("%sì˜ ì¼ê¸°ê°€ ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤.\n", date);
     }
     else {
-        printf("%sÀÇ ÀÏ±â°¡ ¾ø½À´Ï´Ù.\n", date);
+        printf("%sì˜ ì¼ê¸°ê°€ ì—†ìŠµë‹ˆë‹¤.\n", date);
     }
 }
 
 void printMenu() {
-    printf("=== ¸Ş´º ===\n");
-    printf("1. ÀÏ±â ¾²±â\n");
-    printf("2. Æ¯Á¤ ³¯Â¥ÀÇ ÀÏ±â º¸±â\n");
-    printf("3. ³¯Â¥ÀÇ ÃÑÁ¡ È®ÀÎ\n");
-    printf("4. ¸ğµç ÀÏ±â ÃÊ±âÈ­\n");
-    printf("5. Æ¯Á¤ ³¯Â¥ÀÇ ÀÏ±â »èÁ¦\n");
-    printf("6. ÇÁ·Î±×·¥ Á¾·á\n");
+    printf("=== ë©”ë‰´ ===\n");
+    printf("1. ì¼ê¸° ì“°ê¸°\n");
+    printf("2. íŠ¹ì • ë‚ ì§œì˜ ì¼ê¸° ë³´ê¸°\n");
+    printf("3. ë‚ ì§œì˜ ì´ì  í™•ì¸\n");
+    printf("4. ëª¨ë“  ì¼ê¸° ì´ˆê¸°í™”\n");
+    printf("5. íŠ¹ì • ë‚ ì§œì˜ ì¼ê¸° ì‚­ì œ\n");
+    printf("6. í”„ë¡œê·¸ë¨ ì¢…ë£Œ\n");
     printf("============\n");
-    printf("¸Ş´º¸¦ ¼±ÅÃÇÏ¼¼¿ä: ");
+    printf("ë©”ë‰´ë¥¼ ì„ íƒí•˜ì„¸ìš”: ");
 }
 
 int main() {
@@ -182,34 +182,34 @@ int main() {
 
         switch (choice) {
         case 1:
-            printf("¿À´ÃÀÇ ³¯Â¥¸¦ ÀÔ·ÂÇÏ¼¼¿ä (YYYY.MM.DD): ");
+            printf("ì˜¤ëŠ˜ì˜ ë‚ ì§œë¥¼ ì…ë ¥í•˜ì„¸ìš” (YYYY.MM.DD): ");
             scanf("%s", diary.date);
 
-            printf("±âºĞÀ» ¼±ÅÃÇÏ¼¼¿ä (±â»İ, ½½ÇÄ, ±îÄ¥, È­³², ¼Ò½É µî): ");
+            printf("ê¸°ë¶„ì„ ì„ íƒí•˜ì„¸ìš” (ê¸°ì¨, ìŠ¬í””, ê¹Œì¹ , í™”ë‚¨, ì†Œì‹¬ ë“±): ");
             scanf("%s", diary.mood);
 
-            printf("µÎ ¼¼ ¹®ÀåÀ¸·Î ¿À´ÃÀÇ ÀÏ±â¸¦ ÀÛ¼ºÇÏ¼¼¿ä: ");
-            getchar();  // ¹öÆÛ ºñ¿ì±â
+            printf("ë‘ ì„¸ ë¬¸ì¥ìœ¼ë¡œ ì˜¤ëŠ˜ì˜ ì¼ê¸°ë¥¼ ì‘ì„±í•˜ì„¸ìš”: ");
+            getchar();  // ë²„í¼ ë¹„ìš°ê¸°
             fgets(diary.content, sizeof(diary.content), stdin);
 
-            printf("º°Á¡À» ÀÔ·ÂÇÏ¼¼¿ä (1~5): ");
+            printf("ë³„ì ì„ ì…ë ¥í•˜ì„¸ìš” (1~5): ");
             scanf("%d", &diary.rating);
 
             addDiary(diary);
-            printf("ÀÏ±â°¡ ÀúÀåµÇ¾ú½À´Ï´Ù.\n");
+            printf("ì¼ê¸°ê°€ ì €ì¥ë˜ì—ˆìŠµë‹ˆë‹¤.\n");
             break;
 
         case 2:
-            printf("Á¶È¸ÇÒ ³¯Â¥¸¦ ÀÔ·ÂÇÏ¼¼¿ä (YYYY.MM.DD): ");
+            printf("ì¡°íšŒí•  ë‚ ì§œë¥¼ ì…ë ¥í•˜ì„¸ìš” (YYYY.MM.DD): ");
             scanf("%s", diary.date);
             viewDiary(diary.date);
             break;
 
         case 3:
-            printf("Á¶È¸ÇÒ ³¯Â¥¸¦ ÀÔ·ÂÇÏ¼¼¿ä (YYYY.MM.DD): ");
+            printf("ì¡°íšŒí•  ë‚ ì§œë¥¼ ì…ë ¥í•˜ì„¸ìš” (YYYY.MM.DD): ");
             scanf("%s", diary.date);
             int totalRating = calculateTotalRating(diary.date);
-            printf("%sÀÇ ÀÏ±â ÃÑÁ¡: %d\n", diary.date, totalRating);
+            printf("%sì˜ ì¼ê¸° ì´ì : %d\n", diary.date, totalRating);
             break;
            
         case 4:
@@ -217,17 +217,17 @@ int main() {
             break;
 
         case 5:
-            printf("»èÁ¦ÇÒ ³¯Â¥¸¦ ÀÔ·ÂÇÏ¼¼¿ä (YYYY.MM.DD): ");
+            printf("ì‚­ì œí•  ë‚ ì§œë¥¼ ì…ë ¥í•˜ì„¸ìš” (YYYY.MM.DD): ");
             scanf("%s", diary.date);
             deleteDiaryByDate(diary.date);
             break;
 
         case 6:
-            printf("ÇÁ·Î±×·¥À» Á¾·áÇÕ´Ï´Ù.\n");
+            printf("í”„ë¡œê·¸ë¨ì„ ì¢…ë£Œí•©ë‹ˆë‹¤.\n");
             break;
 
         default:
-            printf("Àß¸øµÈ ¸Ş´º ¼±ÅÃÀÔ´Ï´Ù. ´Ù½Ã ¼±ÅÃÇÏ¼¼¿ä.\n");
+            printf("ì˜ëª»ëœ ë©”ë‰´ ì„ íƒì…ë‹ˆë‹¤. ë‹¤ì‹œ ì„ íƒí•˜ì„¸ìš”.\n");
         }
     } while (choice != 6);
 
