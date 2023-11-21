@@ -35,7 +35,7 @@ void SetColor(int color) {
 
 void DrawDino(int dinoY) {
     GotoXY(0, dinoY);
-    SetColor(15); // Èò»ö
+    SetColor(15); // í°ìƒ‰
     static bool legFlag = true;
     printf("         $$$$$$    \n");
     printf("        $$$$$$$$   \n");
@@ -61,7 +61,7 @@ void DrawDino(int dinoY) {
 
 void DrawTree(int treeX) {
     GotoXY(treeX, TREE_BOTTOM_Y);
-    SetColor(15); // Èò»ö
+    SetColor(15); // í°ìƒ‰
     printf("    $$");
     GotoXY(treeX, TREE_BOTTOM_Y + 1);
     printf("   $  $");
@@ -119,7 +119,7 @@ void DrawGameOver(const int score) {
     GotoXY(x, y + 5);
     printf("SCORE : %d", score);
     printf("\n\n\n\n\n\n\n\n\n");
-    printf("Ã³À½À¸·Î µ¹¾Æ°¡·Á¸é 'm'À» ´©¸£½Ã¿À . . .\n");
+    printf("ì²˜ìŒìœ¼ë¡œ ëŒì•„ê°€ë ¤ë©´ 'm'ì„ ëˆ„ë¥´ì‹œì˜¤ . . .\n");
     printf("or\n");
     system("pause");
 
