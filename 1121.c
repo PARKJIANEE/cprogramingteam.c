@@ -79,7 +79,7 @@ void DrawGameOver(const int score) {
     GotoXY(x, y + 5);
     printf("SCORE : %d", score);
     printf("\n\n\n\n\n\n\n\n\n");
-    printf("а╬╥Аго╥а╦И 'm'ю╩ ╢╘╦ё╫ц©ю . . .\n");
+    printf("ц│б╬б╥ц║ц┤ц▐б╥ц│б╦ц╘ 'm'ц─б╩ б╢б╘б╦бёб╫ц┐б©ц─ . . .\n");
     printf("or\n");
     system("pause");
 
