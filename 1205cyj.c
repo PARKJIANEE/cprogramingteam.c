@@ -257,7 +257,6 @@ void draw_map(void) { //게임 상태 표시를 나타내는 함수
     gotoxy(STATUS_X_ADJ, y + 15); printf("  △   : Shift        SPACE : Hard Drop");
     gotoxy(STATUS_X_ADJ, y + 16); printf("◁  ▷ : Left / Right   P   : Pause");
     gotoxy(STATUS_X_ADJ, y + 17); printf("  ▽   : Soft Drop     ESC  : Quit");
-    gotoxy(STATUS_X_ADJ, y + 20); printf("blog.naver.com/azure0777");
 }
 
 void draw_main(void) { //게임판 그리는 함수 
